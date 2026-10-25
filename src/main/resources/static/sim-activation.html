@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SIM Activation Portal</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<header class="portal-header">
+    <h1>SIM Activation Portal</h1>
+    <p>Customer Registration and SIM Activation Management</p>
+</header>
+
+<main class="container">
+
+    <!-- Welcome Section -->
+    <section class="card" id="welcomePage">
+        <h2>Welcome!</h2>
+        <p>Register and manage SIM activation requests easily.</p>
+
+        <button type="button" id="startButton">
+            Get Started
+        </button>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="card" id="activationPage" hidden>
+
+        <h2 id="formTitle">Register New SIM</h2>
+
+        <div id="message"
+             class="message"
+             role="status"
+             aria-live="polite"></div>
+
+        <!-- Application Reference Number -->
+        <div id="referenceResult"
+             class="card"
+             hidden
+             aria-live="polite">
+
+            <h3>Application Submitted Successfully!</h3>
+
+            <p>Your Application Reference Number:</p>
+
+            <h2 id="referenceNumber">-</h2>
+
+            <p>Please save this number for future reference.</p>
+
+            <button type="button" id="copyReferenceButton">
+                Copy Reference Number
+            </button>
+
+        </div>
+
+        <form id="simForm">
+
+            <input type="hidden" id="customerId">
+
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" required>
+
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" required>
+
+            <label for="mobile">Mobile Number</label>
+            <input type="tel"
+                   id="mobile"
+                   pattern="[0-9]{10}"
+                   maxlength="10"
+                   inputmode="numeric"
+                   required>
+
+            <label for="aadhaar">Aadhaar Number</label>
+            <input type="password"
+                   id="aadhaar"
+                   pattern="[0-9]{12}"
+                   maxlength="12"
+                   inputmode="numeric"
+                   required
+                   autocomplete="off">
+
+            <small>
+                When editing, leave Aadhaar blank to retain
+                the existing value.
+            </small>
+
+            <label for="simNumber">SIM Number</label>
+            <input type="text" id="simNumber" required>
+
+            <label for="address">Address</label>
+            <textarea id="address" rows="3" required></textarea>
+
+            <label for="idProof">Customer ID Proof</label>
+
+            <select id="idProof" required>
+                <option value="">Select ID Proof</option>
+                <option value="Aadhaar">Aadhaar Card</option>
+                <option value="Passport">Passport</option>
+                <option value="VoterID">Voter ID</option>
+                <option value="DrivingLicense">Driving Licence</option>
+            </select>
+
+            <div class="form-buttons">
+
+                <button type="submit" id="submitButton">
+                    Register SIM
+                </button>
+
+                <button type="button"
+                        id="cancelEditButton"
+                        hidden>
+                    Cancel Edit
+                </button>
+
+            </div>
+
+        </form>
+    </section>
+
+    <!-- Search Section -->
+    <section class="card">
+
+        <h2>Search Customer</h2>
+
+        <div class="search-box">
+
+            <input type="tel"
+                   id="searchMobile"
+                   placeholder="Enter 10-digit mobile number"
+                   maxlength="10"
+                   inputmode="numeric">
+
+            <button type="button" id="searchButton">
+                Search
+            </button>
+
+            <button type="button" id="clearSearchButton">
+                Clear
+            </button>
+
+        </div>
+
+        <div id="searchMessage"
+             class="message"
+             role="status"
+             aria-live="polite"></div>
+
+        <div id="searchResult" class="table-wrapper"></div>
+
+    </section>
+
+    <!-- Dashboard Statistics -->
+    <section class="dashboard-grid">
+
+        <div class="stat-card">
+            <h3>Total Customers</h3>
+            <p id="totalCustomers">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Pending</h3>
+            <p id="pendingCustomers">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Approved</h3>
+            <p id="approvedCustomers">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Rejected</h3>
+            <p id="rejectedCustomers">0</p>
+        </div>
+
+    </section>
+
+    <!-- Customer Management -->
+    <section class="card">
+
+        <h2>Registered Customers</h2>
+
+        <button type="button" id="viewCustomers">
+            Refresh Customers
+        </button>
+
+        <div id="customerList"
+             class="table-wrapper"
+             aria-live="polite"></div>
+
+    </section>
+
+</main>
+
+<footer class="portal-footer">
+    <p>SIM Activation Portal | Customer Management System</p>
+</footer>
+
+<script src="/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,427 @@
+/* =====================================
+SIM ACTIVATION PORTAL
+Professional Dashboard Styling
+===================================== */
+
+* {
+  box-sizing: border-box;
+  }
+
+:root {
+--primary: #174ea6;
+--primary-dark: #123b80;
+--background: #f3f6fc;
+--surface: #ffffff;
+--text: #263449;
+--muted: #6b7280;
+--border: #dce3ee;
+--success: #198754;
+--danger: #dc3545;
+--warning: #b77900;
+}
+
+body {
+margin: 0;
+font-family: "Segoe UI", Arial, sans-serif;
+background: var(--background);
+color: var(--text);
+line-height: 1.6;
+}
+
+/* Header */
+
+.portal-header {
+padding: 32px 20px;
+text-align: center;
+color: white;
+background: linear-gradient(135deg, #174ea6, #2878d0);
+box-shadow: 0 4px 15px rgba(23, 78, 166, 0.18);
+}
+
+.portal-header h1 {
+margin: 0;
+font-size: 32px;
+font-weight: 700;
+}
+
+.portal-header p {
+margin: 8px 0 0;
+color: #eaf2ff;
+font-size: 15px;
+}
+
+/* Main Container */
+
+.container {
+width: min(1200px, 94%);
+margin: 30px auto;
+}
+
+/* Cards */
+
+.card {
+margin-bottom: 25px;
+padding: 28px;
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 14px;
+box-shadow: 0 5px 20px rgba(31, 55, 90, 0.06);
+}
+
+.card h2 {
+margin-top: 0;
+margin-bottom: 20px;
+color: var(--primary);
+font-size: 23px;
+}
+
+.card p {
+color: var(--muted);
+}
+
+/* Welcome Section */
+
+#welcomePage {
+padding: 45px 25px;
+text-align: center;
+}
+
+#welcomePage h2 {
+font-size: 29px;
+}
+
+#welcomePage p {
+margin-bottom: 25px;
+}
+
+/* Forms */
+
+form {
+display: grid;
+grid-template-columns: repeat(2, minmax(0, 1fr));
+gap: 8px 22px;
+}
+
+label {
+display: block;
+margin-top: 10px;
+font-size: 14px;
+font-weight: 600;
+color: var(--text);
+}
+
+input,
+textarea,
+select {
+display: block;
+width: 100%;
+margin-top: 6px;
+padding: 12px 13px;
+font: inherit;
+font-size: 14px;
+color: var(--text);
+background: white;
+border: 1px solid #cbd5e1;
+border-radius: 7px;
+outline: none;
+transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+border-color: var(--primary);
+box-shadow: 0 0 0 3px rgba(23, 78, 166, 0.12);
+}
+
+textarea {
+resize: vertical;
+}
+
+small {
+grid-column: 1 / -1;
+color: var(--muted);
+font-size: 12px;
+}
+
+/* Form Buttons */
+
+.form-buttons {
+display: flex;
+gap: 12px;
+grid-column: 1 / -1;
+margin-top: 20px;
+}
+
+/* Buttons */
+
+button {
+padding: 11px 17px;
+border: none;
+border-radius: 7px;
+background: var(--primary);
+color: white;
+font-family: inherit;
+font-size: 14px;
+font-weight: 600;
+cursor: pointer;
+transition: background 0.2s, transform 0.2s;
+}
+
+button:hover:not(:disabled) {
+background: var(--primary-dark);
+transform: translateY(-1px);
+}
+
+button:disabled {
+opacity: 0.55;
+cursor: not-allowed;
+}
+
+#startButton {
+padding: 13px 28px;
+font-size: 15px;
+}
+
+#submitButton {
+background: var(--success);
+}
+
+#submitButton:hover:not(:disabled) {
+background: #146c43;
+}
+
+#cancelEditButton,
+#clearSearchButton {
+background: #64748b;
+}
+
+.approve-button {
+margin: 3px;
+background: var(--success);
+}
+
+.approve-button:hover:not(:disabled) {
+background: #146c43;
+}
+
+.reject-button,
+.delete-button {
+margin: 3px;
+background: var(--danger);
+}
+
+.reject-button:hover:not(:disabled),
+.delete-button:hover:not(:disabled) {
+background: #b02a37;
+}
+
+.edit-button {
+margin: 3px;
+background: #d97706;
+}
+
+.edit-button:hover:not(:disabled) {
+background: #b45309;
+}
+
+/* Search */
+
+.search-box {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.search-box input {
+flex: 1;
+min-width: 0;
+margin-top: 0;
+}
+
+.search-box button {
+flex-shrink: 0;
+}
+
+/* Dashboard Statistics */
+
+.dashboard-grid {
+display: grid;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+gap: 18px;
+margin-bottom: 25px;
+}
+
+.stat-card {
+padding: 23px 15px;
+text-align: center;
+background: white;
+border: 1px solid var(--border);
+border-radius: 12px;
+box-shadow: 0 5px 18px rgba(31, 55, 90, 0.05);
+}
+
+.stat-card h3 {
+margin: 0;
+color: var(--muted);
+font-size: 14px;
+font-weight: 600;
+}
+
+.stat-card p {
+margin: 10px 0 0;
+color: var(--primary);
+font-size: 32px;
+font-weight: 700;
+}
+
+/* Tables */
+
+.table-wrapper {
+width: 100%;
+margin-top: 18px;
+overflow-x: auto;
+border: 1px solid var(--border);
+border-radius: 9px;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+background: white;
+font-size: 13px;
+}
+
+th,
+td {
+padding: 13px 12px;
+text-align: left;
+border-bottom: 1px solid var(--border);
+}
+
+th {
+color: white;
+background: var(--primary);
+font-weight: 600;
+white-space: nowrap;
+}
+
+tbody tr:nth-child(even) {
+background: #f8faff;
+}
+
+tbody tr:hover {
+background: #edf4ff;
+}
+
+tbody tr:last-child td {
+border-bottom: none;
+}
+
+.actions-cell {
+min-width: 260px;
+white-space: nowrap;
+}
+
+/* Activation Status */
+
+.status-pending {
+color: var(--warning);
+font-weight: 700;
+}
+
+.status-approved {
+color: var(--success);
+font-weight: 700;
+}
+
+.status-rejected {
+color: var(--danger);
+font-weight: 700;
+}
+
+/* Messages */
+
+.message {
+margin: 12px 0;
+font-size: 14px;
+font-weight: 600;
+overflow-wrap: anywhere;
+}
+
+/* Footer */
+
+.portal-footer {
+padding: 20px;
+text-align: center;
+color: var(--muted);
+font-size: 13px;
+}
+
+/* Accessibility */
+
+button:focus-visible {
+outline: 3px solid #8bb8ff;
+outline-offset: 3px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 800px) {
+.dashboard-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.container {
+    width: 95%;
+}
+
+.card {
+    padding: 20px;
+}
+
+.portal-header h1 {
+    font-size: 26px;
+}
+
+}
+
+@media (max-width: 550px) {
+form {
+grid-template-columns: 1fr;
+}
+
+.form-buttons {
+    flex-direction: column;
+}
+
+.form-buttons button {
+    width: 100%;
+}
+
+.search-box {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.search-box button {
+    width: 100%;
+}
+
+.dashboard-grid {
+    gap: 10px;
+}
+
+.stat-card {
+    padding: 17px 8px;
+}
+
+.stat-card p {
+    font-size: 26px;
+}
+
+.card h2 {
+    font-size: 20px;
+}
+
+}

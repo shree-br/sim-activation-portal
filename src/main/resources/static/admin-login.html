@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | SIM Activation Portal</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #dbeafe, #eef2ff);
+            font-family: Arial, sans-serif;
+        }
+
+        .login-card {
+            width: 90%;
+            max-width: 400px;
+            padding: 35px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
+        }
+
+        .login-card h1 {
+            text-align: center;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .login-card p {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        .login-card label {
+            display: block;
+            margin: 15px 0 7px;
+            font-weight: bold;
+        }
+
+        .login-card input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .login-card button {
+            width: 100%;
+            margin-top: 22px;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-card button:hover {
+            background: #1d4ed8;
+        }
+
+        #loginMessage {
+            margin-top: 15px;
+            color: #dc2626;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-card">
+        <h1>Admin Login</h1>
+        <p>SIM Activation Portal</p>
+
+        <form id="loginForm">
+            <label for="username">Username</label>
+            <input type="text" id="username"
+                   placeholder="Enter username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password"
+                   placeholder="Enter password" required>
+
+            <button type="submit">Login</button>
+            <div id="loginMessage" role="alert"></div>
+        </form>
+
+        <a class="back-link" href="/sim-activation.html">
+            Back to Registration Portal
+        </a>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit",
+            async function(event) {
+                event.preventDefault();
+
+                const username =
+                    document.getElementById("username").value.trim();
+
+                const password =
+                    document.getElementById("password").value;
+
+                const message =
+                    document.getElementById("loginMessage");
+
+                message.textContent = "";
+
+                try {
+                    const response = await fetch("/api/auth/login", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({ username, password })
+                    });
+
+                    const result = await response.json();
+
+                    if (!response.ok) {
+                        throw new Error(result.message || "Login failed.");
+                    }
+
+window.location.href = "/admin-dashboard.html";
+                } catch (error) {
+                    message.textContent =
+                        error.message ||
+                        "Login service is unavailable. Please try again.";
+                }
+            });
+    </script>
+</body>
+</html>
